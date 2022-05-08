@@ -140,7 +140,7 @@ textarea {
 }
 
 .key:active {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(116, 98, 59, 0.6);
 }
 
 
@@ -150,3 +150,10 @@ textarea {
     grid-column: 1 / span 2;
     grid-area: spac;
 } */
+
+
+.active {
+    background-color: rgba(116, 98, 59, 0.6);
+    transform: scale(95%);
+    transition: 0.3s;
+}

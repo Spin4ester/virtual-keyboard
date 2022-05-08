@@ -216,7 +216,7 @@ export default [
     onshift: { en: 'Enter', ru: 'Enter' },
   },
   {
-    code: 'LeftShift',
+    code: 'ShiftLeft',
     inner: { en: 'Shift', ru: 'Shift' },
     onshift: { en: 'onshift', ru: 'onshift' },
     type: 'func',
@@ -277,13 +277,13 @@ export default [
     onshift: { en: '▲', ru: '▲' },
   },
   {
-    code: 'RightShift',
+    code: 'ShiftRight',
     inner: { en: 'Shift', ru: 'Shift' },
     onshift: { en: 'onshift', ru: 'onshift' },
     type: 'func',
   },
   {
-    code: 'CtrlLeft',
+    code: 'ControlLeft',
     inner: { en: 'Ctrl', ru: 'Ctrl' },
     onshift: { en: 'Ctrl', ru: 'Ctrl' },
     type: 'func',
@@ -322,7 +322,7 @@ export default [
     onshift: { en: '►', ru: '►' },
   },
   {
-    code: 'CtrlRight',
+    code: 'ControlRight',
     inner: { en: 'Ctrl', ru: 'Ctrl' },
     onshift: { en: 'Ctrl', ru: 'Ctrl' },
     type: 'func',
