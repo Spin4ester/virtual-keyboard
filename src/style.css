@@ -27,7 +27,7 @@ textarea {
 
 
 .keyboard {
-    max-width: 900px;
+    max-width: 1000px;
     width: 100%;
 
     background-color: #2e2e2e;
@@ -42,7 +42,7 @@ textarea {
     "shtl shtl .... .... .... .... .... .... .... .... . . . shtr shtr"
     ".... .... spac spac spac spac spac spac spac spac . . . .... ...."; */
 
-    gap: 10px;
+    
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 0 20px rgba(68, 46, 23, 0.6);
@@ -50,8 +50,9 @@ textarea {
 }
 
 
-.keyboard_keys {
-    text-align: center;
+.keyboard-keys {
+    text-align: center; 
+   
 }
 
 
@@ -64,12 +65,13 @@ textarea {
     background-color: rgba(68, 46, 23, 1);
     border: 3px solid #ffffff;
     font-size: 1.1rem;
-    border-radius: 10px;
+    border-radius: 50%;
     display: inline-flex;
     justify-content: center;
     align-items: center;
     color: #ffffff;
     outline: none;
+    margin: 5px;
     
 }
 
@@ -78,11 +80,13 @@ textarea {
     max-width: 100px;
     width: 200%;
     position: relative;
+    border-radius: 15%;
 }
 
 .key-space {
-    max-width: 600px;
-    width: 600%;
+    max-width: 400px;
+    width: 400%;
+    border-radius: 15%;
 }
 
 .key-caps::after {
@@ -97,13 +101,14 @@ textarea {
     border-radius: 5px;
 }
 
-.caps_active {
+.caps_active::after {
     background: rgb(1, 238, 68);
 }
 
 .key:hover {
     cursor: pointer;
-    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    background-color: rgba(98, 76, 56, 0.8);
 }
 
 .key:active {
