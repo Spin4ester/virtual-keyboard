@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "RS School task - Virtual Keyboard",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "@babel/core": "^7.17.10"
+  },
   "devDependencies": {
     "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",

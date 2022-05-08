@@ -282,18 +282,17 @@ langChange() {
     
 
       document.onkeydown = function(event) {
-        console.log(event.code);
-        console.log(event.keyCode);
         Keyboard.elements.textarea.focus();
         document.querySelector(`.${event.code}`).classList.add('active');
         if(document.querySelector(`.${event.code}`) === document.querySelector('.CapsLock')) {
         Keyboard.toggleCapsLock();
-        console.log(1111);
+        
     }
 }
         document.onkeyup = function(event) {
             document.querySelector(`.${event.code}`).classList.remove('active');
             Keyboard.elements.textarea.focus();
+            
             // if(document.querySelector(`.${event.code}`) === document.querySelector('.CapsLock')) {
             //     Keyboard.toggleCapsLock();
             // }
