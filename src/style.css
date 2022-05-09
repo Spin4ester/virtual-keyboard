@@ -29,36 +29,13 @@ textarea {
     overflow-y: scroll;
 }
 
-/* textarea:active {
-    border: 2px solid rgba(103, 77, 106, 0.8);
-    
-} */
-
-/* textarea: {
-    cursor: pointer;
-    
-} */
-
-
-
 
 .keyboard {
     max-width: 1000px;
     width: 100%;
 
     background-color: #5e5e5e;
-    /* grid-template-columns: repeat(15, 1fr);
-    grid-template-rows: repeat(5, 1fr); */
-/* 
-
-    grid-template-areas:
-    ".... .... spac .... .... .... .... .... .... .... . . . bcks bcks"
-    ".... .... .... .... .... .... .... .... .... .... . . . .... ...."
-    "caps caps .... .... .... .... .... .... .... .... . . . entr entr"
-    "shtl shtl .... .... .... .... .... .... .... .... . . . shtr shtr"
-    ".... .... spac spac spac spac spac spac spac spac . . . .... ...."; */
-
-    
+ 
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 0 20px rgba(68, 46, 23, 0.6);
@@ -80,7 +57,7 @@ textarea {
     padding: 5px;
     background-color: rgba(247, 255, 246, 1);
     
-    border: 2px solid #ffffff;
+    border: 2px solid #000000;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 1.1rem;
     border-radius: 50%;
@@ -141,19 +118,18 @@ textarea {
 
 .key:active {
     background-color: rgba(116, 98, 59, 0.6);
+    transform: scale(90%);
+    transition: 0.1s;
 }
-
-
-/* .container .keyboard .space {
-    grid-row:1;
-    grid-column:3;
-    grid-column: 1 / span 2;
-    grid-area: spac;
-} */
 
 
 .active {
     background-color: rgba(116, 98, 59, 0.6);
-    transform: scale(95%);
-    transition: 0.3s;
+    color: antiquewhite;
+    transform: scale(90%);
+    transition: 0.1s;
+}
+
+p {
+    color: antiquewhite;
 }

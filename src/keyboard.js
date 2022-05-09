@@ -1,6 +1,7 @@
 /* eslint-disable linebreak-style */
 
-import keys from './keys.js';
+import keys from './keys';
+import './style.css';
 
 const Keyboard = {
   elements: {
@@ -34,7 +35,7 @@ const Keyboard = {
     this.elements.main = document.createElement('div');
     this.elements.keysContainer = document.createElement('div');
     this.elements.guide = document.createElement('p');
-    this.elements.guide.textContent = 'Language Swtich: Shift + Alt';
+    this.elements.guide.textContent = 'Language Swtich: Not working...Yet';
 
     // Adding classes
 
@@ -45,7 +46,6 @@ const Keyboard = {
     this.elements.keysContainer.appendChild(this.createKeys());
 
     this.elements.keys = this.elements.keysContainer.querySelectorAll('.key');
-    console.log(this.elements.keys);
 
     // Add to DOM
 
@@ -59,6 +59,7 @@ const Keyboard = {
     document.querySelectorAll('.textarea').forEach((element) => {
       element.addEventListener('focus', () => {
         this.open(element.value, (currentValue) => {
+          // eslint-disable-next-line no-param-reassign
           element.value = currentValue;
         });
       });
@@ -76,7 +77,6 @@ const Keyboard = {
       keyElement.setAttribute('type', 'button');
       keyElement.classList.add('key', key.code);
 
-      
       switch (key.code) {
         case 'Backspace':
           keyElement.classList.add('key-wide', 'func');
@@ -84,7 +84,7 @@ const Keyboard = {
 
           keyElement.addEventListener('click', () => {
             this.properties.value = this.properties.value.substring(0, this.properties.value.length - 1);
-            this._triggerEvent('oninput');
+            this.triggerEvent('oninput');
           });
           break;
 
@@ -93,23 +93,10 @@ const Keyboard = {
           keyElement.classList.add('key-wide', 'key-caps', 'func');
           keyElement.textContent = key.inner.en;
 
-
-        //   keyElement.addEventListener('keydown', () => {
-        //     this.toggleCapsLock();
-        //     keyElement.classList.toggle('caps_active', this.properties.capsLock);
-        //     console.log('active');
-            
-        //   });
-
           keyElement.addEventListener('click', () => {
             this.toggleCapsLock();
             keyElement.classList.toggle('caps_active', this.properties.capsLock);
-            console.log('CapsTut');
-            
           });
-
-          
-
 
           break;
 
@@ -122,12 +109,12 @@ const Keyboard = {
             event.preventDefault();
             const start = this.elements.textarea.selectionStart;
             const end = this.elements.textarea.selectionEnd;
-           
-            this.properties.value = this.properties.value.substring(0, start) + "\t" + this.properties.value.substring(end);
-            this.elements.textarea.selectionStart = this.selectionEnd = start + 1;
-            this._triggerEvent('oninput');
+
+            this.properties.value = `${this.properties.value.substring(0, start)}\t${this.properties.value.substring(end)}`;
+            this.elements.textarea.selectionStart = this.selectionEnd;
+            this.selectionEnd = start + 1;
+            this.triggerEvent('oninput');
             this.elements.textarea.focus();
-            console.log('neyasno');
           });
           break;
 
@@ -137,7 +124,7 @@ const Keyboard = {
 
           keyElement.addEventListener('click', () => {
             this.properties.value += '\n';
-            this._triggerEvent('oninput');
+            this.triggerEvent('oninput');
           });
           break;
 
@@ -147,7 +134,7 @@ const Keyboard = {
 
           keyElement.addEventListener('click', () => {
             this.properties.value += ' ';
-            this._triggerEvent('oninput');
+            this.triggerEvent('oninput');
           });
           break;
 
@@ -157,29 +144,13 @@ const Keyboard = {
 
           //   keyElement.addEventListener('click', () => {
           //     this.properties.value += ' ';
-          //     this._triggerEvent('oninput');
+          //     this.triggerEvent('oninput');
           //   });
           break;
 
         case 'ShiftLeft':
           keyElement.classList.add('key-wide', 'func');
           keyElement.textContent = key.inner.en;
-
-          keyElement.addEventListener('click', () => {
-            this.elements.keys.forEach((el) => {
-                if(this.properties.lang === 'en') {
-                    console.log(key.code);
-                    
-                    // el.textContent = this.onshift.en;
-                }
-                
-                
-                // el.textContent = this.properties.lang === 'en' ? key.onshift.en : key.onshift.ru;           
-            }
-          )});
-
-
-
 
           break;
 
@@ -223,8 +194,8 @@ const Keyboard = {
 
           keyElement.addEventListener('click', () => {
             this.properties.value += this.properties.capsLock ? key.onshift.en : key.inner.en;
-        
-            this._triggerEvent('oninput');
+
+            this.triggerEvent('oninput');
           });
           break;
       }
@@ -233,38 +204,29 @@ const Keyboard = {
       if (nextRow) {
         fragment.appendChild(document.createElement('br'));
       }
-
-    //   console.log(key.inner.en);
     });
 
     return fragment;
   },
 
+  //   langChange() {
+  //     document.onkeydown = function (event) {
+  //       if (event.code === 'ControlLeft') {
+  //         document.onkeyup = function (event) {
+  //           if (event.code == 'AltLeft') {
+  //             console.log('zdes');
+  //           } else {
+  //             document.onkeyup = null;
+  //           }
+  //         };
+  //       }
+  //     };
+  //   },
 
-  
-
-langChange() {
-    document.onkeydown = function(event) {
-    if(event.code === 'ControlLeft') {
-        document.onkeyup = function(event) {
-            if(event.code == 'AltLeft') {
-                console.log('zdes');
-                }
-                else {
-                    document.onkeyup = null;
-                }
-            }
-        }
-    }
-},
-
-
-
-  _triggerEvent(handlerName) {
-    if (typeof this.eventHandlers[handlerName] =='function') {
+  triggerEvent(handlerName) {
+    if (typeof this.eventHandlers[handlerName] === 'function') {
       this.eventHandlers[handlerName](this.properties.value);
       this.elements.textarea.focus();
-      console.log('what');      
     }
   },
 
@@ -277,29 +239,23 @@ langChange() {
     }
   },
 
-
   handleKey() {
-    
-
-      document.onkeydown = function(event) {
-        Keyboard.elements.textarea.focus();
-        document.querySelector(`.${event.code}`).classList.add('active');
-        if(document.querySelector(`.${event.code}`) === document.querySelector('.CapsLock')) {
+    document.onkeydown = function (event) {
+      Keyboard.elements.textarea.focus();
+      document.querySelector(`.${event.code}`).classList.add('active');
+      if (document.querySelector(`.${event.code}`) === document.querySelector('.CapsLock')) {
         Keyboard.toggleCapsLock();
-        
-    }
-}
-        document.onkeyup = function(event) {
-            document.querySelector(`.${event.code}`).classList.remove('active');
-            Keyboard.elements.textarea.focus();
-            
-            // if(document.querySelector(`.${event.code}`) === document.querySelector('.CapsLock')) {
-            //     Keyboard.toggleCapsLock();
-            // }
-            
-}},
+      }
+    };
+    document.onkeyup = function (event) {
+      document.querySelector(`.${event.code}`).classList.remove('active');
+      Keyboard.elements.textarea.focus();
 
-
+      // if(document.querySelector(`.${event.code}`) === document.querySelector('.CapsLock')) {
+      //     Keyboard.toggleCapsLock();
+      // }
+    };
+  },
 
   open(initialValue, oninput) {
     this.properties.value = initialValue;
@@ -312,9 +268,4 @@ langChange() {
 window.addEventListener('DOMContentLoaded', () => {
   Keyboard.init();
   Keyboard.handleKey();
-  Keyboard.open('', (currentValue) => {
-    console.log(currentValue);
-  });
 });
-
-

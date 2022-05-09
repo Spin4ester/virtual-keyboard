@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 module.exports = {
   env: {
     browser: true,
@@ -11,5 +12,6 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
+    'max-len': ['error', { code: 130 }],
   },
 };
