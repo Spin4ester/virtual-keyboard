@@ -59,7 +59,6 @@ const Keyboard = {
     document.querySelectorAll('.textarea').forEach((element) => {
       element.addEventListener('focus', () => {
         this.open(element.value, (currentValue) => {
-          // eslint-disable-next-line no-param-reassign
           element.value = currentValue;
         });
       });
@@ -232,11 +231,11 @@ const Keyboard = {
 
   toggleCapsLock() {
     this.properties.capsLock = !this.properties.capsLock;
-    for (const key of this.elements.keys) {
+    this.elements.keys.forEach((key) => {
       if (this.properties.lang === 'en' && !key.classList.contains('func')) {
         key.textContent = this.properties.capsLock ? key.textContent.toUpperCase() : key.textContent.toLowerCase();
       }
-    }
+    });
   },
 
   handleKey() {

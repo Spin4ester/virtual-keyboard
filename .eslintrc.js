@@ -13,5 +13,6 @@ module.exports = {
   },
   rules: {
     'max-len': ['error', { code: 130 }],
+    'no-param-reassign': 0,
   },
 };
