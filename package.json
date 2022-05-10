@@ -1,0 +1,36 @@
+{
+  "name": "virtual-keyboard",
+  "version": "1.0.0",
+  "description": "RS School task - Virtual Keyboard",
+  "main": "index.js",
+  "dependencies": {
+    "@babel/core": "^7.17.10"
+  },
+  "devDependencies": {
+    "babel-loader": "^8.2.5",
+    "css-loader": "^6.7.1",
+    "eslint": "^8.14.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "html-webpack-plugin": "^5.5.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "start": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Spin4ester/virtual-keyboard.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Spin4ester/virtual-keyboard/issues"
+  },
+  "homepage": "https://github.com/Spin4ester/virtual-keyboard#readme",
+  "keywords": []
+}
